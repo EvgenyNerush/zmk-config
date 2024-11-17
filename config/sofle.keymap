@@ -17,9 +17,8 @@
 
 / {
 
-    // Suppose that in system caps turns en and caps + rshift turns ru. Thus
-    // -- cyr change layer to base and turns en,
-    // -- shift + cyr change layer to cyrillic and turns ru.
+    // Suppose that in the system Caps shifts us/ru. Then
+    // cyr_macro presses Caps and toggles Cyrillic layer.
 
     macros {
 
@@ -27,30 +26,11 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&kp RSHFT>
-                , <&kp CLCK>
-                , <&to CYRILLIC>
-                ;
-        };
-
-        base_macro: base_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
                 = <&kp CLCK>
-                , <&to BASE>
+                , <&tog CYRILLIC>
                 ;
         };
 
-    };
-
-    behaviors {
-        cyr_mod_morph: cyr_mod_morph {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&base_macro>, <&cyr_macro>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
     };
 
     keymap {
@@ -61,13 +41,13 @@
 // ------------------------------------------------------------------------------------------------------------
 // |   `   |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   | PSCR  |
 // |  ESC  |  '  |  ,  |  .   |  P   |  Y   |                   |  F   |  G    |  C    |  R   |   L   | BKSPC |
-// |  TAB  |  A  |  O  |  E   |  U   |  I   |                   |  D   |  H    |  T    |  N   |   S   | CYRILLIC |
+// |  TAB  |  A  |  O  |  E   |  U   |  I   |                   |  D   |  H    |  T    |  N   |   S   | CYR_MACRO |
 // | SHIFT |  ;  |  Q  |  J   |  K   |  X   |  MUTE  |  |       |  B   |  M    |  W    |  V   |   Z   | SHIFT |
 //               | CTRL| GUI  | ALT  | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | DEL  |
             bindings = <
 &kp GRAVE &kp N1  &kp N2   &kp N3   &kp N4    &kp N5                           &kp N6 &kp N7    &kp N8  &kp N9 &kp N0  &kp PSCRN
 &kp ESC   &kp SQT &kp COMMA &kp DOT &kp P     &kp Y                            &kp F  &kp G     &kp C   &kp R  &kp L   &kp BSPC
-&kp TAB   &kp A   &kp O    &kp E    &kp U     &kp I                            &kp D  &kp H     &kp T   &kp N  &kp S   &cyr_mod_morph
+&kp TAB   &kp A   &kp O    &kp E    &kp U     &kp I                            &kp D  &kp H     &kp T   &kp N  &kp S   &cyr_macro
 &kp LSHFT &kp SEMI &kp Q   &kp J    &kp K     &kp X      &kp C_MUTE &none      &kp B  &kp M     &kp W   &kp V  &kp Z   &kp RSHFT
                   &kp LCTRL &kp LGUI &kp LALT &mo LOWER  &kp RET    &kp SPACE  &mo RAISE  &kp RCTRL &kp RALT   &kp DEL
             >;
@@ -98,14 +78,14 @@
         raise_layer {
             display-name = "raise";
 // ------------------------------------------------------------------------------------------------------------
-// | BTCLR | BT1  | BT2  |  BT3  |  BT4  |  BT5 |                |      |      |       |      |       |       |
-// |       | INS  | HOME |   ^   |  END  |      |                |      | PGUP |       | PGDN |       |       |
+// | BTCLR | BT1  | BT2  |  BT3  |  BT4  | BT5  |                |      |      |       |      |       |       |
+// |       | INS  | HOME |   ^   |  END  | CAPS |                |      | PGUP |       | PGDN |       |       |
 // |       |      |   <- |   v   |  ->   |      |                |  H   |  J   |  K    |  L   |       |       |
 // |       |  Z   |  X   |   C   |   V   |      |      |  |      |      |      |       |      |       |       |
 //                |      |       |       |      |      |  |      |      |      |       |      |
             bindings = <
 &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4           &trans    &trans    &trans   &trans    &trans  &trans
-&trans     &kp INS      &kp HOME    &kp UP  &kp END     &trans                        &trans &kp PG_UP &trans &kp PG_DN   &trans    &trans
+&trans     &kp INS      &kp HOME    &kp UP  &kp END     &kp CLCK                        &trans &kp PG_UP &trans &kp PG_DN   &trans    &trans
 &trans     &trans       &kp LEFT    &kp DOWN  &kp RIGHT  &trans                       &kp H  &kp J     &kp K     &kp L    &trans    &trans
 &trans     &kp Z        &kp X       &kp C     &kp V     &trans        &trans  &trans  &trans    &trans    &trans   &trans    &trans  &trans
                         &trans       &trans       &trans       &trans        &trans  &trans  &trans    &trans    &trans   &trans
