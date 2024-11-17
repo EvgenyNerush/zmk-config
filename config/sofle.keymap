@@ -13,11 +13,13 @@
 #define BASE 0
 #define LOWER 1
 #define RAISE 2
-#define CYRILLIC 3 // if caps used in system to change en <-> ru, then:
-                   // shift + cyr change layer to cyr and changes caps state,
-                   // cyr change layer to base and changes caps state.
+#define CYRILLIC 3
 
 / {
+
+    // Suppose that in system caps turns en and caps + rshift turns ru. Thus
+    // -- cyr change layer to base and turns en,
+    // -- shift + cyr change layer to cyrillic and turns ru.
 
     macros {
 
@@ -25,7 +27,8 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&kp CLCK>
+                = <&kp RSHFT>
+                , <&kp CLCK>
                 , <&to CYRILLIC>
                 ;
         };
@@ -39,6 +42,15 @@
                 ;
         };
 
+    };
+
+    behaviors {
+        cyr_mod_morph: cyr_mod_morph {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&base_macro>, <&cyr_macro>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
     };
 
     keymap {
@@ -55,7 +67,7 @@
             bindings = <
 &kp GRAVE &kp N1  &kp N2   &kp N3   &kp N4    &kp N5                           &kp N6 &kp N7    &kp N8  &kp N9 &kp N0  &kp PSCRN
 &kp ESC   &kp SQT &kp COMMA &kp DOT &kp P     &kp Y                            &kp F  &kp G     &kp C   &kp R  &kp L   &kp BSPC
-&kp TAB   &kp A   &kp O    &kp E    &kp U     &kp I                            &kp D  &kp H     &kp T   &kp N  &kp S   &mm LSHFT <&cyr_macro> <&base_macro>
+&kp TAB   &kp A   &kp O    &kp E    &kp U     &kp I                            &kp D  &kp H     &kp T   &kp N  &kp S   &cyr_mod_morph
 &kp LSHFT &kp SEMI &kp Q   &kp J    &kp K     &kp X      &kp C_MUTE &none      &kp B  &kp M     &kp W   &kp V  &kp Z   &kp RSHFT
                   &kp LCTRL &kp LGUI &kp LALT &mo LOWER  &kp RET    &kp SPACE  &mo RAISE  &kp RCTRL &kp RALT   &kp DEL
             >;
