@@ -13,9 +13,9 @@
 #define BASE 0
 #define LOWER 1
 #define RAISE 2
-#define CYRILLIC 3 # if caps used in system to change en <-> ru, then:
-                   # shift + cyr change layer to cyr and changes caps state,
-                   # cyr change layer to base and changes caps state.
+#define CYRILLIC 3 // if caps used in system to change en <-> ru, then:
+                   // shift + cyr change layer to cyr and changes caps state,
+                   // cyr change layer to base and changes caps state.
 
 / {
 
