@@ -11,24 +11,87 @@
 #include <dt-bindings/zmk/ext_power.h>
 
 #define BASE 0
-#define LOWER 1
-#define RAISE 2
-#define CYRILLIC 3
+#define CYRILLIC 1
+#define LOWER 2
+#define RAISE 3
 #define ADJUST 4
 
 / {
 
-    // Suppose that in the system Caps shifts us/ru. Then
-    // cyr_macro presses Caps and toggles Cyrillic layer.
-
     macros {
 
+        // Suppose that in the system Caps shifts us/ru. Then
+        // cyr_macro presses Caps and toggles Cyrillic layer.
         cyr_macro: cyr_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
                 = <&kp CLCK>
                 , <&tog CYRILLIC>
+                ;
+        };
+
+        // ' ; , . on CYRILLIC layer
+
+        cyr_sqt: cyr_sqt {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&kp CLCK>
+                , <&kp SQT>
+                , <&kp CLCK>
+                ;
+        };
+
+        cyr_semi: cyr_semi {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&kp CLCK>
+                , <&kp SEMI>
+                , <&kp CLCK>
+                ;
+        };
+
+        cyr_comma: cyr_comma {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&kp CLCK>
+                , <&kp COMMA>
+                , <&kp CLCK>
+                ;
+        };
+
+        cyr_dot: cyr_dot {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&kp CLCK>
+                , <&kp DOT>
+                , <&kp CLCK>
+                ;
+        };
+
+        // Turn off Caps when RAISE and LOWER are pressed
+
+        cyr_raise: cyr_raise {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&kp CLCK>
+                , <&mo RAISE>
+                , <&kp CLCK>
+                ;
+        };
+
+        cyr_lower: cyr_lower {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&kp CLCK>
+                , <&mo LOWER>
+                , <&kp CLCK>
                 ;
         };
 
@@ -104,20 +167,20 @@
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
-        cyrillic_layer { // DIKTOR-like
+        cyrillic_layer { // DIKTOR-like, works if йцукен is turned on in the system
             display-name = "cyrillic";
 // ------------------------------------------------------------------------------------------------------------
-// |   |    |  Ё  |  Й  |     |     |               |     |     |  Ш  |  Щ  |     |   |
-// |   |  Ц |  ,  |  .  |  Ь  |  Я  |               |  З  |  В  |  К  |  Д  |  Ч  |   |
-// |   |  У |  И  |  Е  |  О  |  А  |               |  Л  |  Н  |  Т  |  С  |  Р  |   |
-// |   |  Ф |  Э  |  Х  |  Ы  |  Ю  |    |     |    |  Б  |  М  |  П  |  Г  |  Ж  |   |
-//          |     |     |     |     |    |     |    |     |     |     |     |
+// |    |    |  Ё  |  Й  |  Ф  |       |              |       |  Ц  |  Ш  |  Щ  |     |    |
+// |    |  ' |  ,  |  .  |  Ь  |  Я    |              |  З    |  В  |  К  |  Д  |  Ч  |    |
+// |    |  У |  И  |  Е  |  О  |  А    |              |  Л    |  Н  |  Т  |  С  |  Р  |    |
+// |    |  ; |  Э  |  Х  |  Ы  |  Ю    |     |  |     |  Б    |  М  |  П  |  Г  |  Ж  |    |
+//           |     |     |     | LOWER |     |  |     | RAISE |     |     |     |
             bindings = <
-&trans &trans &kp GRAVE &kp Q        &trans &trans                  &trans    &trans &kp I  &kp O  &trans   &trans
-&trans &kp W  &kp FSLH  &kp QUESTION &kp M  &kp Z                   &kp P     &kp D  &kp R  &kp L  &kp X    &trans
-&trans &kp E  &kp B     &kp T        &kp J  &kp F                   &kp K     &kp Y  &kp N  &kp C  &kp H    &trans
-&trans &kp A  &kp SQT   &kp LBKT     &kp S  &kp DOT &trans  &trans  &kp COMMA &kp V  &kp G  &kp U  &kp SEMI &trans
-              &trans    &trans       &trans &trans  &trans  &trans  &trans    &trans &trans &trans
+&trans &none     &kp GRAVE  &kp Q    &kp A  &none                     &none      &kp W  &kp I  &kp O  &none   &trans
+&trans &cyr_sqt  &cyr_comma &cyr_dot &kp M  &kp Z                     &kp P      &kp D  &kp R  &kp L  &kp X    &trans
+&trans &kp E     &kp B      &kp T    &kp J  &kp F                     &kp K      &kp Y  &kp N  &kp C  &kp H    &trans
+&trans &cyr_semi &kp SQT    &kp LBKT &kp S  &kp DOT    &trans  &trans &kp COMMA  &kp V  &kp G  &kp U  &kp SEMI &trans
+                 &trans     &trans   &trans &cyr_lower &trans  &trans &cyr_raise &trans &trans &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
