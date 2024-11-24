@@ -33,25 +33,7 @@
                 , <&macro_tap &kp N0 &kp N4>
                 , <&macro_param_1to1>
                 , <&kp MACRO_PLACEHOLDER>
-                , <&macro_param_2to2>
-                , <&kp MACRO_PLACEHOLDER>
-                , <&kp RET>
-                ;
-        };
-
-        // the same as &cu but if SHIFT is already pressed
-        // &ccu N1 N6 yields U+0416 — cyrillic capital letter 'Ж'
-        ccu: ccu {
-            compatible = "zmk,behavior-macro-two-param";
-            #binding-cells = <2>;
-            bindings
-                = <&macro_press &kp LCTRL>
-                , <&kp U>
-                , <&macro_release &kp LCTRL>
-                , <&macro_tap &kp N0 &kp N4>
-                , <&macro_param_1to1>
-                , <&kp MACRO_PLACEHOLDER>
-                , <&macro_param_2to2>
+                , <&macro_param_2to1>
                 , <&kp MACRO_PLACEHOLDER>
                 , <&kp RET>
                 ;
@@ -66,224 +48,224 @@
         cyr_a: cyr_a {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&cu N3 N0>, <&ccu N1 N0>;
+            bindings = <&cu N3 N0>, <&cu N1 N0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         cyr_be: cyr_be {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&cu N3 N1>, <&ccu N1 N1>;
+            bindings = <&cu N3 N1>, <&cu N1 N1>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         cyr_ve: cyr_ve {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&cu N3 N2>, <&ccu N1 N2>;
+            bindings = <&cu N3 N2>, <&cu N1 N2>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         cyr_ghe: cyr_ghe {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&cu N3 N3>, <&ccu N1 N3>;
+            bindings = <&cu N3 N3>, <&cu N1 N3>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         cyr_de: cyr_de {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&cu N3 N4>, <&ccu N1 N4>;
+            bindings = <&cu N3 N4>, <&cu N1 N4>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         cyr_ie: cyr_ie {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&cu N3 N5>, <&ccu N1 N5>;
+            bindings = <&cu N3 N5>, <&cu N1 N5>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         cyr_io: cyr_io {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&cu N5 N1>, <&ccu N0 N1>;
+            bindings = <&cu N5 N1>, <&cu N0 N1>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         cyr_zhe: cyr_zhe {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&cu N3 N6>, <&ccu N1 N6>;
+            bindings = <&cu N3 N6>, <&cu N1 N6>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         cyr_ze: cyr_ze {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&cu N3 N7>, <&ccu N1 N7>;
+            bindings = <&cu N3 N7>, <&cu N1 N7>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         cyr_i: cyr_i {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&cu N3 N8>, <&ccu N1 N8>;
+            bindings = <&cu N3 N8>, <&cu N1 N8>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         cyr_shorti: cyr_shorti {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&cu N3 N9>, <&ccu N1 N9>;
+            bindings = <&cu N3 N9>, <&cu N1 N9>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         cyr_ka: cyr_ka {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&cu N3 A>, <&ccu N1 A>;
+            bindings = <&cu N3 A>, <&cu N1 A>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         cyr_el: cyr_el {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&cu N3 B>, <&ccu N1 B>;
+            bindings = <&cu N3 B>, <&cu N1 B>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         cyr_em: cyr_em {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&cu N3 C>, <&ccu N1 C>;
+            bindings = <&cu N3 C>, <&cu N1 C>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         cyr_en: cyr_en {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&cu N3 D>, <&ccu N1 D>;
+            bindings = <&cu N3 D>, <&cu N1 D>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         cyr_o: cyr_o {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&cu N3 E>, <&ccu N1 E>;
+            bindings = <&cu N3 E>, <&cu N1 E>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         cyr_pe: cyr_pe {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&cu N3 F>, <&ccu N1 F>;
+            bindings = <&cu N3 F>, <&cu N1 F>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         cyr_er: cyr_er {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&cu N4 N0>, <&ccu N2 N0>;
+            bindings = <&cu N4 N0>, <&cu N2 N0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         cyr_es: cyr_es {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&cu N4 N1>, <&ccu N2 N1>;
+            bindings = <&cu N4 N1>, <&cu N2 N1>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         cyr_te: cyr_te {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&cu N4 N2>, <&ccu N2 N2>;
+            bindings = <&cu N4 N2>, <&cu N2 N2>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         cyr_u: cyr_u {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&cu N4 N3>, <&ccu N2 N3>;
+            bindings = <&cu N4 N3>, <&cu N2 N3>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         cyr_ef: cyr_ef {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&cu N4 N4>, <&ccu N2 N4>;
+            bindings = <&cu N4 N4>, <&cu N2 N4>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         cyr_ha: cyr_ha {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&cu N4 N5>, <&ccu N2 N5>;
+            bindings = <&cu N4 N5>, <&cu N2 N5>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         cyr_tse: cyr_tse {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&cu N4 N6>, <&ccu N2 N6>;
+            bindings = <&cu N4 N6>, <&cu N2 N6>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         cyr_che: cyr_che {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&cu N4 N7>, <&ccu N2 N7>;
+            bindings = <&cu N4 N7>, <&cu N2 N7>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         cyr_sha: cyr_sha {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&cu N4 N8>, <&ccu N2 N8>;
+            bindings = <&cu N4 N8>, <&cu N2 N8>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         cyr_shcha: cyr_shcha {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&cu N4 N9>, <&ccu N2 N9>;
+            bindings = <&cu N4 N9>, <&cu N2 N9>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         cyr_yeru: cyr_yeru {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&cu N4 B>, <&ccu N2 B>;
+            bindings = <&cu N4 B>, <&cu N2 B>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         cyr_softsign: cyr_softsign {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&cu N4 C>, <&ccu N4 A>;
+            bindings = <&cu N4 C>, <&cu N4 A>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         cyr_e: cyr_e {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&cu N4 D>, <&ccu N2 D>;
+            bindings = <&cu N4 D>, <&cu N2 D>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         cyr_yu: cyr_yu {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&cu N4 E>, <&ccu N2 E>;
+            bindings = <&cu N4 E>, <&cu N2 E>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         cyr_ya: cyr_ya {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&cu N4 F>, <&ccu N2 F>;
+            bindings = <&cu N4 F>, <&cu N2 F>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
