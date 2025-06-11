@@ -35,7 +35,7 @@
                   &none  &none  &kp LGUI &mo BLUE &kp RET          &kp SPACE  &mo RED &kp RCTRL &kp RALT  &kp DEL
             >;
 
-            sensor-bindings = <&inc_dec_kp C_NEXT C_PREVIOUS &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp C_FF C_RW &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         blue_layer {
@@ -48,14 +48,14 @@
 // |       |     |  [  |  ]   |  {   |  }   |        |  |       |  =   |  +    |  \    |  |   |       |       |
 //               |     |      |      |      |        |  |       |      |       |       |      |
             bindings = <
-&trans &trans   &trans   &trans   &trans   &trans                   &trans    &trans   &trans    &trans   &trans   &trans
-&trans &kp N1   &kp N2   &kp N3   &kp N4   &kp N5                   &kp N6    &kp N7   &kp N8    &kp N9   &kp N0   &trans
-&trans &kp EXCL &kp AT   &kp HASH &kp DLLR &kp PRCNT                &kp CARET &kp AMPS &kp ASTRK &kp LPAR &kp RPAR &trans
-&trans &trans   &kp LBKT &kp RBKT &kp LBRC &kp RBRC &trans   &trans &kp EQUAL &kp PLUS &kp BSLH  &kp PIPE &trans   &trans
-                &trans   &trans   &trans   &trans   &trans   &trans &trans    &trans   &trans    &trans
+&trans &trans   &trans    &trans    &trans    &trans                   &trans    &trans   &trans    &trans   &trans   &trans
+&trans &kp N1   &kp N2    &kp N3    &kp N4    &kp N5                   &kp N6    &kp N7   &kp N8    &kp N9   &kp N0   &trans
+&trans &kp EXCL &kp AT    &kp HASH  &kp DLLR  &kp PRCNT                &kp CARET &kp AMPS &kp ASTRK &kp LPAR &kp RPAR &trans
+&trans &trans   &kp MINUS &kp EQUAL &kp UNDER &kp PLUS &trans   &trans &kp RBKT &kp RBRC &kp BSLH  &kp PIPE &trans   &trans
+                &trans    &trans    &trans    &trans   &trans   &trans &trans    &trans   &trans    &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_NEXT C_PREVIOUS &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp C_FF C_RW &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         red_layer {
@@ -74,7 +74,7 @@
                  &trans   &trans   &trans    &kp LALT &kp LCTRL  &trans &trans    &trans    &trans    &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_NEXT C_PREVIOUS &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp C_FF C_RW &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
     };
