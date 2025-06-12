@@ -22,20 +22,20 @@
         default_layer {
             display-name = "default";
 // ----------------------------------------------------------------------------------------------------------------
-// | MUTE  |  1  |  2  |  3   |  4   |  5   |                                |  6  |  7    |  8    |  9   |   0   | PSCR      |
+// | PAUSE |  1  |  2  |  3   |  4   |  5   |                                |  6  |  7    |  8    |  9   |   0   | PSCR      |
 // | ESC   |  Q  |  W  |  E   |  R   |  T   |                                |  Y  |  U    |  I    |  O   |   P   | [         |
 // | TAB   |  A  |  S  |  D   |  F   |  G   |                                |  H  |  J    |  K    |  L   |   ;   | '         |
 // | SHIFT |  Z  |  X  |  C   |  V   |  B   | PAUSE |                | MUTE  |  N  |  M    |  ,    |  .   |   /   | SHIFT     |
 //               |     |      | GUI  | BLUE | ENTER |                | SPACE | RED | CTRL  |       |      |
             bindings = <
-&kp C_MUTE &kp N1 &kp N2 &kp N3 &kp N4   &kp N5                               &kp N6  &kp N7    &kp N8    &kp N9  &kp N0   &kp PSCRN
-&kp ESC    &kp Q  &kp W  &kp E  &kp R    &kp T                                &kp Y   &kp U     &kp I     &kp O   &kp P    &kp LBKT
-&kp TAB    &kp A  &kp S  &kp D  &kp F    &kp G                                &kp H   &kp J     &kp K     &kp L   &kp SEMI &kp SQT
-&kp LSHFT  &kp Z  &kp X  &kp C  &kp V    &kp B    &kp C_PLAY_PAUSE &kp C_MUTE &kp N   &kp M     &kp COMMA &kp DOT &kp FSLH &kp RSHFT
-                  &none  &none  &kp LGUI &mo BLUE &kp RET          &kp SPACE  &mo RED &kp RCTRL &kp RALT  &kp DEL
+&kp C_PLAY_PAUSE &kp N1 &kp N2 &kp N3 &kp N4   &kp N5                               &kp N6  &kp N7    &kp N8    &kp N9  &kp N0   &kp PSCRN
+&kp ESC          &kp Q  &kp W  &kp E  &kp R    &kp T                                &kp Y   &kp U     &kp I     &kp O   &kp P    &kp LBKT
+&kp TAB          &kp A  &kp S  &kp D  &kp F    &kp G                                &kp H   &kp J     &kp K     &kp L   &kp SEMI &kp SQT
+&kp LSHFT        &kp Z  &kp X  &kp C  &kp V    &kp B    &kp C_PLAY_PAUSE &kp C_MUTE &kp N   &kp M     &kp COMMA &kp DOT &kp FSLH &kp RSHFT
+                        &none  &none  &kp LGUI &mo BLUE &kp RET          &kp SPACE  &mo RED &kp RCTRL &kp RALT  &kp DEL
             >;
 
-            sensor-bindings = <&inc_dec_kp C_FF C_RW &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp RIGHT LEFT &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         blue_layer {
@@ -55,7 +55,7 @@
                 &trans    &trans    &trans    &trans   &trans   &trans &trans    &trans   &trans    &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_FF C_RW &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp RIGHT LEFT &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         red_layer {
@@ -74,7 +74,7 @@
                  &trans   &trans   &trans    &kp LALT &kp LCTRL  &trans &trans    &trans    &trans    &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_FF C_RW &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp RIGHT LEFT &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
     };
