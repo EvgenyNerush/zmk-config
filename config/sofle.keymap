@@ -69,8 +69,7 @@
 //             |      |    |     |MMouse|Shift |  |     |       |      |      |     |
             bindings = <
 &trans    &trans    &trans   &trans   &trans    &trans                     &trans    &trans   &trans     &trans   &trans   &trans
-//&kp LALT  &kp TILDE &kp HOME &kp UP   &kp END   &kp PSCRN           &kp C_PLAY_PAUSE &mkp MB4 &kp SCRLCK &mkp MB5 &kp INS  &kp BSPC
-&trans &kp N1   &kp N2  &kp UP   &kp END   &kp PSCRN                     &kp N6    &kp N7   &kp N8    &kp N9   &kp N0   &trans
+&kp LALT  &kp TILDE &kp HOME &kp UP   &kp END   &kp PSCRN           &kp C_PLAY_PAUSE &mkp MB4 &kp SCRLCK &mkp MB5 &kp INS  &kp BSPC
 //&trans    &kp GRAVE &kp LEFT &kp DOWN &kp RIGHT &kp F11                    &kp F12  &mkp LCLK &kp NUMLCK &mkp RCLK &kp RALT &kp DEL
 //&kp LCTRL &kp F1    &kp F2   &kp F3   &kp F4    &kp F5   &trans     &trans &kp F6    &kp F7   &kp F8     &kp F9   &kp F10  &trans
 //                    &trans   &trans   &trans   &mkp MCLK &kp LSHFT  &trans &trans    &trans   &trans     &trans
